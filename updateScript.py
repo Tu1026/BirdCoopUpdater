@@ -56,15 +56,15 @@ def send_email(username, password):
 
 def update_loop():
 ## Keeps looping through the website until a spot is open
-    response = requests.get(url, headers=headers)
-    soup = BeautifulSoup(response.text, "lxml")
-    soup = str(soup)
     while True:
         try:
+            response = requests.get(url, headers=headers)
+            soup = BeautifulSoup(response.text, "lxml")
+            soup = str(soup)
             find = re.findall('"Spots":"Full"', soup)
             # if the amount of people registered has not changed keep looping
         except:
-            time.sleep(10) 
+            time.sleep(10)
             update_loop()
            
         if (len(find)):
