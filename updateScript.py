@@ -17,6 +17,7 @@ import gc
 import requests
 import re
 import lxml
+import webbrowser
 
 
 load_dotenv()
@@ -27,11 +28,11 @@ def send_discord_message(word):
 
     @client.event
     async def on_ready():
-        await client.get_channel(736117723322646528).send(f'Register for {word}RIGHT NOW!!!!!!!!!!!')
-        await client.get_channel(736117723322646528).send(f'Register for {word}RIGHT NOW!!!!!!!!!!!')
-        await client.get_channel(736117723322646528).send(f'Register for {word}RIGHT NOW!!!!!!!!!!!')
-        await client.get_channel(736117723322646528).send(f'Register for {word}RIGHT NOW!!!!!!!!!!!')
-        await client.get_channel(736117723322646528).send(f'Register for {word}RIGHT NOW!!!!!!!!!!!')
+        await client.get_channel(736117723322646528).send(f'Register for {word} here {url} RIGHT NOW!!!!!!!!!!!')
+        await client.get_channel(736117723322646528).send(f'Register for {word} here {url} RIGHT NOW!!!!!!!!!!!')
+        await client.get_channel(736117723322646528).send(f'Register for {word} here {url} RIGHT NOW!!!!!!!!!!!')
+        await client.get_channel(736117723322646528).send(f'Register for {word} here {url} RIGHT NOW!!!!!!!!!!!')
+        await client.get_channel(736117723322646528).send(f'Register for {word} here {url} RIGHT NOW!!!!!!!!!!!')
         await client.close()
        
 
@@ -91,19 +92,23 @@ def update_loop():
                 send_discord_message(session)
                 send_email(username, password)
                 print("email notificaiton sent")
+                webbrowser.open_new(url)
+
             except:
                 print("something went wrong with emailing stuff or FB stuff")
-            ctypes.windll.user32.MessageBoxW(0, session, 'Spot is now open for', session)
+            if platform == "win32" or platform == 'win64':
+                ctypes.windll.user32.MessageBoxW(0, session, 'Spot is now open for', session)
             break
 
 #get information from user
+from sys import argv, exit, platform
 noti_email = "s31302@gmail.com"
 session = "gym"
-url = input("What is the 'session' specific url that you want to get in" +
-"(ex: https://ubc.perfectmind.com/24063/Clients/BookMe4LandingPages/Class?widgetId=15f6af07-39c5-473e-b053-96653f77a406&embed=False&redirectedFromEmbededMode=False&classId=97d9bf03-bdf9-deb1-2b6f-ba335a8e5fe2&occurrenceDate=20200911)?")
+url = argv[1]
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
-update_loop()
+exit(update_loop())
 
 
 
 
+x
