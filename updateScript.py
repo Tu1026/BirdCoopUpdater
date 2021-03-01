@@ -104,11 +104,6 @@ def update_loop():
 from sys import argv, exit, platform
 noti_email = "s31302@gmail.com"
 session = "gym"
-url = argv[1]
+url = input("What is the session that you want to get in")
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
 exit(update_loop())
-
-
-
-
-x
