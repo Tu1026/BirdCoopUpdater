@@ -21,18 +21,18 @@ import webbrowser
 
 
 load_dotenv()
-
+name = input('Who is registering for the gym: ')
 def send_discord_message(word):
     TOKEN = os.getenv('DISCORD_TOKEN')
     client = discord.Client()
 
     @client.event
     async def on_ready():
-        await client.get_channel(736117723322646528).send(f'Register for {word} here {url} RIGHT NOW!!!!!!!!!!!')
-        await client.get_channel(736117723322646528).send(f'Register for {word} here {url} RIGHT NOW!!!!!!!!!!!')
-        await client.get_channel(736117723322646528).send(f'Register for {word} here {url} RIGHT NOW!!!!!!!!!!!')
-        await client.get_channel(736117723322646528).send(f'Register for {word} here {url} RIGHT NOW!!!!!!!!!!!')
-        await client.get_channel(736117723322646528).send(f'Register for {word} here {url} RIGHT NOW!!!!!!!!!!!')
+        await client.get_channel(736117723322646528).send(f'{name} register for {word} here {url} RIGHT NOW!!!!!!!!!!!')
+        await client.get_channel(736117723322646528).send(f'{name} Register for {word} here {url} RIGHT NOW!!!!!!!!!!!')
+        await client.get_channel(736117723322646528).send(f'{name} Register for {word} here {url} RIGHT NOW!!!!!!!!!!!')
+        await client.get_channel(736117723322646528).send(f'{name} Register for {word} here {url} RIGHT NOW!!!!!!!!!!!')
+        await client.get_channel(736117723322646528).send(f'{name} Register for {word} here {url} RIGHT NOW!!!!!!!!!!!')
         await client.close()
        
 
@@ -104,6 +104,6 @@ def update_loop():
 from sys import argv, exit, platform
 noti_email = "s31302@gmail.com"
 session = "gym"
-url = input("What is the session that you want to get in")
+url = input("What is the session that you want to get in: ")
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
 exit(update_loop())
