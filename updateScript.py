@@ -19,7 +19,6 @@ import re
 import lxml
 import webbrowser
 
-
 load_dotenv()
 name = input('Who is registering for the gym: ')
 def send_discord_message(word):
@@ -69,8 +68,9 @@ def update_loop():
             update_loop()
            
         if (len(find)):
-            # wait 10 seconds,
-            print("No seats avaliable yet updating in 10 seconds")
+            # wait 10 seconds
+            now = datetime.datetime.now()
+            print(f"No seats avaliable yet updating in 10 seconds. Current time: {now.month}/{now.day} {now.hour}:{now.minute}:{now.second}")
             time.sleep(10)
             # continue with the script,
             del response, soup, find
